@@ -73,6 +73,10 @@ let cardsChosen = [];
 let cardsChosenId = [];
 //and also an array to hold the card matches found
 let cardsWon = [];
+//to hold the play again message
+const playAgain = document.getElementById("playAgain");
+//linked to restart button and function
+const restart = document.getElementById("restart");
 
 //using sort and Math.random to generate random placing of the cards on each new game
 cardArray.sort(() => 0.5 - Math.random());
@@ -88,7 +92,7 @@ function createBoard() {
     card.setAttribute("data-id", i);
     //add an event listener to listen for when the card is clicked, this will trigger the flipcard function
     card.addEventListener("click", flipCard);
-    console.log(card);
+
     //place all cards onto the grid using appendChild method
     grid.appendChild(card);
   }
@@ -98,7 +102,7 @@ createBoard();
 
 //flip card - FUNCTION()
 function flipCard() {
-  //getAttribute gets the data-id created on line 90
+  //getAttribute gets the data-id created on line 88
   let cardId = this.getAttribute("data-id");
   //push the selected card, based on the cardId, into the cardsChosen array, storing it's name
   cardsChosen.push(cardArray[cardId].name);
@@ -151,13 +155,14 @@ function checkForMatch() {
   //check if all cards have been found
   if (cardsWon.length === cardArray.length / 2) {
     resultDisplay.textContent = "Well done! You have found all the dogs!";
+    playAgain.textContent = "Do you want to play again?";
   }
-  restartGame();
 }
 
-const restartGame = document.getElementById("restartGame");
-
-restartGame.addEventListener("click", function () {
+restart.addEventListener("click", function () {
+  resultDisplay.textContent = "";
+  playAgain.textContent = "";
+  grid.innerHTML = "";
   cardsChosen = [];
   cardsChosenId = [];
   cardsWon = [];
