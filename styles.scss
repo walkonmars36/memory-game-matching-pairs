@@ -2,6 +2,12 @@
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  gap: 0.25em;
   width: 90%;
-  max-width: 800px;
+  max-width: 812px;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
 }

@@ -5,7 +5,14 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  gap: 0.25em;
   width: 90%;
-  max-width: 800px;
+  max-width: 812px;
+}
+
+img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 /*# sourceMappingURL=styles.css.map */
