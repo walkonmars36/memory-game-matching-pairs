@@ -2,16 +2,44 @@ body {
   background-color: #bebebe;
 }
 
-.grid {
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25em;
+.container {
   width: 90%;
   max-width: 812px;
+  margin: 5em auto;
+  position: relative;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.25em;
 }
 
 img {
   max-width: 100%;
   object-fit: cover;
+}
+
+button {
+  padding: 1em 3em;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+#restart {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#playAgain {
+  display: none;
+  font-size: 1.25rem;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
 }

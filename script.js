@@ -66,6 +66,7 @@ const grid = document.querySelector(".grid");
 
 //get the result ID to be able to display the score of correct guesses
 const resultDisplay = document.getElementById("result");
+const messageDisplay = document.getElementById("message");
 
 //create empty array for cards chosen
 let cardsChosen = [];
@@ -102,6 +103,7 @@ createBoard();
 
 //flip card - FUNCTION()
 function flipCard() {
+  messageDisplay.textContent = "";
   //getAttribute gets the data-id created on line 88
   let cardId = this.getAttribute("data-id");
   //push the selected card, based on the cardId, into the cardsChosen array, storing it's name
@@ -132,35 +134,39 @@ function checkForMatch() {
   }
   //check to see if the two chosen cards match
   else if (cardsChosen[0] === cardsChosen[1]) {
-    alert("You found a match");
+    messageDisplay.textContent = "You found a match";
     //set found cards to a white square
-    cards[optionOneId].setAttribute("src", "images/white-sq.png");
-    cards[optionTwoId].setAttribute("src", "images/white-sq.png");
+    cards[optionOneId].setAttribute("src", "images/grey-sq.png");
+    cards[optionTwoId].setAttribute("src", "images/grey-sq.png");
     //remove event listener from these chosen cards
     cards[optionOneId].removeEventListener("click", flipCard);
     cards[optionTwoId].removeEventListener("click", flipCard);
+
     //then push the found card pairs into cardsWon array
     cardsWon.push(cardsChosen);
   } else {
     //reset to question mark card
     cards[optionOneId].setAttribute("src", "images/paw.png");
     cards[optionTwoId].setAttribute("src", "images/paw.png");
-    alert("Sorry, try again");
+    messageDisplay.textContent = "No match, try again";
   }
   //clear the arrays in readiness for next guess - flipCard()
   cardsChosen = [];
   cardsChosenId = [];
+
   resultDisplay.textContent = cardsWon.length;
 
   //check if all cards have been found
   if (cardsWon.length === cardArray.length / 2) {
-    resultDisplay.textContent = "Well done! You have found all the dogs!";
-    playAgain.textContent = "Do you want to play again?";
+    messageDisplay.textContent = "Well done! You have found all the dogs!";
+
+    playAgain.style.display = "block";
+    restart.style.display = "block";
   }
 }
 
 restart.addEventListener("click", function () {
-  resultDisplay.textContent = "";
+  messageDisplay.textContent = "";
   playAgain.textContent = "";
   grid.innerHTML = "";
   cardsChosen = [];
