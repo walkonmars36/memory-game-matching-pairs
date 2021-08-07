@@ -86,8 +86,8 @@ function createBoard() {
   //loop over the cardArray and use createElement method to create the image elements in a card variable
   for (let i = 0; i < cardArray.length; i++) {
     const card = document.createElement("img");
-    //use setAttribute to link to the relevant image path of question-mark card to start the game
-    card.setAttribute("src", "images/question-mark.png");
+    //use setAttribute to link to the relevant image path of paw card to start the game
+    card.setAttribute("src", "images/paw.png");
     //use data-id and i to loop through the array and assign an index from 0 - 11
     card.setAttribute("data-id", i);
     //add an event listener to listen for when the card is clicked, this will trigger the flipcard function
@@ -126,8 +126,8 @@ function checkForMatch() {
 
   //prevent user from clicking the same square twice
   if (optionOneId === optionTwoId) {
-    cards[optionOneId].setAttribute("src", "images/question-mark.png");
-    cards[optionTwoId].setAttribute("src", "images/question-mark.png");
+    cards[optionOneId].setAttribute("src", "images/paw.png");
+    cards[optionTwoId].setAttribute("src", "images/paw.png");
     alert("You have clicked the same image");
   }
   //check to see if the two chosen cards match
@@ -143,8 +143,8 @@ function checkForMatch() {
     cardsWon.push(cardsChosen);
   } else {
     //reset to question mark card
-    cards[optionOneId].setAttribute("src", "images/question-mark.png");
-    cards[optionTwoId].setAttribute("src", "images/question-mark.png");
+    cards[optionOneId].setAttribute("src", "images/paw.png");
+    cards[optionTwoId].setAttribute("src", "images/paw.png");
     alert("Sorry, try again");
   }
   //clear the arrays in readiness for next guess - flipCard()
