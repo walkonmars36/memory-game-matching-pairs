@@ -3,17 +3,21 @@ body {
 }
 
 .container {
-  width: 90%;
+  width: 95%;
   max-width: 812px;
-  margin: 5em auto;
+  margin: 0 auto;
   position: relative;
+  text-align: center;
 }
 
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 0.25em;
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 img {
@@ -39,7 +43,7 @@ button {
   display: none;
   font-size: 1.25rem;
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
 }
