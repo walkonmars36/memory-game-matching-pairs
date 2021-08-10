@@ -75,8 +75,8 @@ let cardsChosenId = [];
 //and also an array to hold the card matches found
 let cardsWon = [];
 //to hold the play again message
-const playAgain = document.getElementById("playAgain");
-//linked to restart button and function
+const wellDone = document.getElementById("wellDone");
+//get the restart button and function
 const restart = document.getElementById("restart");
 
 //using sort and Math.random to generate random placing of the cards on each new game
@@ -104,6 +104,7 @@ createBoard();
 //flip card - FUNCTION()
 function flipCard() {
   messageDisplay.textContent = "";
+  resultDisplay.textContent = "";
   //getAttribute gets the data-id created on line 88
   let cardId = this.getAttribute("data-id");
   //push the selected card, based on the cardId, into the cardsChosen array, storing it's name
@@ -134,43 +135,43 @@ function checkForMatch() {
   }
   //check to see if the two chosen cards match
   else if (cardsChosen[0] === cardsChosen[1]) {
-    messageDisplay.textContent = "You found a match";
+    messageDisplay.textContent = "You found a match 🎉";
     //set found cards to a white square
-    cards[optionOneId].setAttribute("src", "images/grey-sq.png");
-    cards[optionTwoId].setAttribute("src", "images/grey-sq.png");
-    //remove event listener from these chosen cards
-    cards[optionOneId].removeEventListener("click", flipCard);
-    cards[optionTwoId].removeEventListener("click", flipCard);
+
+    cards[optionOneId].setAttribute("src", "images/white-sq.png");
+    cards[optionTwoId].setAttribute("src", "images/white-sq.png");
 
     //then push the found card pairs into cardsWon array
     cardsWon.push(cardsChosen);
   } else {
-    //reset to question mark card
+    //reset to paw print card
     cards[optionOneId].setAttribute("src", "images/paw.png");
     cards[optionTwoId].setAttribute("src", "images/paw.png");
-    messageDisplay.textContent = "No match, try again";
+
+    messageDisplay.textContent = "No match, try again.";
   }
   //clear the arrays in readiness for next guess - flipCard()
   cardsChosen = [];
   cardsChosenId = [];
 
-  resultDisplay.textContent = cardsWon.length;
+  resultDisplay.textContent = " Matches Found : " + cardsWon.length;
 
   //check if all cards have been found
   if (cardsWon.length === cardArray.length / 2) {
-    messageDisplay.textContent = "Well done! You have found all the dogs!";
-
-    playAgain.style.display = "block";
+    messageDisplay.textContent = "";
+    resultDisplay.textContent = "";
+    wellDone.style.display = "sblock";
     restart.style.display = "block";
   }
 }
 
 restart.addEventListener("click", function () {
   messageDisplay.textContent = "";
-  playAgain.textContent = "";
+  wellDone.textContent = "";
   grid.innerHTML = "";
   cardsChosen = [];
   cardsChosenId = [];
   cardsWon = [];
   createBoard();
+  restart.style.display = "none";
 });

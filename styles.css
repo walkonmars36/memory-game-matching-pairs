@@ -1,13 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 body {
-  background-color: #bebebe;
+  background-color: white;
+  font-family: "Fredoka One", cursive;
+  color: #f1860b;
 }
 
 .container {
   width: 95%;
-  max-width: 812px;
+  max-width: 800px;
   margin: 0 auto;
   position: relative;
   text-align: center;
+  background-color: #ffffff;
+}
+
+@media (min-width: 600px) {
+  .container {
+    margin-top: 3em;
+    padding: 0 2em;
+    -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  padding-top: 1em;
+}
+
+h1 span.aka {
+  color: #2887eb;
+}
+
+h3 {
+  color: #505050;
+}
+
+p {
+  margin-bottom: 1em;
+  color: #505050;
+}
+
+img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .grid {
@@ -22,22 +59,25 @@ body {
   .grid {
     -ms-grid-columns: (1fr)[4];
         grid-template-columns: repeat(4, 1fr);
+    padding: 0 2em 4em;
   }
 }
 
-img {
-  max-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 button {
+  font-family: "Fredoka One", cursive;
+  background-color: #2887eb;
+  color: white;
+  font-size: 2rem;
   padding: 1em 3em;
   border-radius: 0.5rem;
   border: none;
 }
 
-#restart {
+button:hover {
+  background-color: #f1860b;
+}
+
+button#restart {
   display: none;
   position: absolute;
   top: 50%;
@@ -46,11 +86,35 @@ button {
           transform: translateX(-50%);
 }
 
-#playAgain {
+.message {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#message {
+  padding-right: 0.5em;
+  font-size: 1.5rem;
+  color: #f1860b;
+}
+
+#result {
+  padding-top: 0.25em;
+  padding-left: 1em;
+  color: #2887eb;
+}
+
+#wellDone {
   display: none;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);

@@ -1,13 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
 body {
-  background-color: #bebebe;
+  background-color: white;
+  font-family: "Fredoka One", cursive;
+  color: #f1860b;
 }
 
 .container {
   width: 95%;
-  max-width: 812px;
+  max-width: 800px;
   margin: 0 auto;
   position: relative;
   text-align: center;
+  background-color: #ffffff;
+
+  @media (min-width: 600px) {
+    margin-top: 3em;
+    padding: 0 2em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  padding-top: 1em;
+
+  & span.aka {
+    color: #2887eb;
+  }
+}
+
+h3 {
+  color: #505050;
+}
+
+p {
+  margin-bottom: 1em;
+  color: #505050;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .grid {
@@ -17,33 +51,58 @@ body {
 
   @media (min-width: 600px) {
     grid-template-columns: repeat(4, 1fr);
+
+    padding: 0 2em 4em;
   }
 }
 
-img {
-  max-width: 100%;
-  object-fit: cover;
-}
-
 button {
+  font-family: "Fredoka One", cursive;
+  background-color: #2887eb;
+  color: white;
+  font-size: 2rem;
   padding: 1em 3em;
   border-radius: 0.5rem;
   border: none;
+
+  &:hover {
+    background-color: #f1860b;
+  }
+
+  &#restart {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
-#restart {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
+.message {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#playAgain {
+#message {
+  padding-right: 0.5em;
+  font-size: 1.5rem;
+  color: #f1860b;
+}
+
+#result {
+  padding-top: 0.25em;
+  padding-left: 1em;
+  color: #2887eb;
+  //   font-size: 1.25rem;
+}
+
+#wellDone {
   display: none;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
 }
