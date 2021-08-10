@@ -79,11 +79,10 @@ const wellDone = document.getElementById("wellDone");
 //get the restart button and function
 const restart = document.getElementById("restart");
 
-//using sort and Math.random to generate random placing of the cards on each new game
-cardArray.sort(() => 0.5 - Math.random());
-
 //Create the game board - FUNCTION()
 function createBoard() {
+  //using sort and Math.random to generate random placing of the cards on each new game
+  cardArray.sort(() => 0.5 - Math.random());
   //loop over the cardArray and use createElement method to create the image elements in a card variable
   for (let i = 0; i < cardArray.length; i++) {
     const card = document.createElement("img");
