@@ -30,13 +30,9 @@ h1 {
   }
 }
 
-h3 {
-  color: #505050;
-}
-
 p {
   margin-bottom: 1em;
-  color: #505050;
+  color: #707070;
 }
 
 img {
@@ -48,10 +44,10 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.25em;
+  margin-top: 0;
 
   @media (min-width: 600px) {
     grid-template-columns: repeat(4, 1fr);
-
     padding: 0 2em 4em;
   }
 }
@@ -79,9 +75,10 @@ button {
 }
 
 .message {
-  display: inline-flex;
-  justify-content: space-between;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
+  margin-bottom: 2em;
 }
 
 #message {
@@ -100,7 +97,7 @@ button {
 #wellDone {
   display: none;
   font-size: 1.5rem;
-
+  width: 100%;
   position: absolute;
   top: 30%;
   left: 50%;

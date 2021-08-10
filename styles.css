@@ -32,13 +32,9 @@ h1 span.aka {
   color: #2887eb;
 }
 
-h3 {
-  color: #505050;
-}
-
 p {
   margin-bottom: 1em;
-  color: #505050;
+  color: #707070;
 }
 
 img {
@@ -53,6 +49,7 @@ img {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   gap: 0.25em;
+  margin-top: 0;
 }
 
 @media (min-width: 600px) {
@@ -87,15 +84,15 @@ button#restart {
 }
 
 .message {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 2em;
 }
 
 #message {
@@ -113,6 +110,7 @@ button#restart {
 #wellDone {
   display: none;
   font-size: 1.5rem;
+  width: 100%;
   position: absolute;
   top: 30%;
   left: 50%;

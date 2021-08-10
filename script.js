@@ -103,9 +103,9 @@ createBoard();
 
 //flip card - FUNCTION()
 function flipCard() {
-  messageDisplay.textContent = "";
-  resultDisplay.textContent = "";
-  //getAttribute gets the data-id created on line 88
+  messageDisplay.style.visibility = "hidden";
+  resultDisplay.style.visibility = "hidden";
+  //getAttribute gets the data-id created on line 93
   let cardId = this.getAttribute("data-id");
   //push the selected card, based on the cardId, into the cardsChosen array, storing it's name
   cardsChosen.push(cardArray[cardId].name);
@@ -135,11 +135,14 @@ function checkForMatch() {
   }
   //check to see if the two chosen cards match
   else if (cardsChosen[0] === cardsChosen[1]) {
+    messageDisplay.style.visibility = "visible";
     messageDisplay.textContent = "You found a match 🎉";
     //set found cards to a white square
-
     cards[optionOneId].setAttribute("src", "images/white-sq.png");
     cards[optionTwoId].setAttribute("src", "images/white-sq.png");
+    //remove the event listener(s)
+    cards[optionOneId].removeEventListener("click", flipCard);
+    cards[optionTwoId].removeEventListener("click", flipCard);
 
     //then push the found card pairs into cardsWon array
     cardsWon.push(cardsChosen);
@@ -147,20 +150,20 @@ function checkForMatch() {
     //reset to paw print card
     cards[optionOneId].setAttribute("src", "images/paw.png");
     cards[optionTwoId].setAttribute("src", "images/paw.png");
-
+    messageDisplay.style.visibility = "visible";
     messageDisplay.textContent = "No match, try again.";
   }
   //clear the arrays in readiness for next guess - flipCard()
   cardsChosen = [];
   cardsChosenId = [];
-
+  resultDisplay.style.visibility = "visible";
   resultDisplay.textContent = " Matches Found : " + cardsWon.length;
 
   //check if all cards have been found
   if (cardsWon.length === cardArray.length / 2) {
     messageDisplay.textContent = "";
     resultDisplay.textContent = "";
-    wellDone.style.display = "sblock";
+    wellDone.style.display = "block";
     restart.style.display = "block";
   }
 }
