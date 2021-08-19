@@ -169,7 +169,7 @@ function checkForMatch() {
 
 restart.addEventListener("click", function () {
   messageDisplay.textContent = "";
-  wellDone.textContent = "";
+  //wellDone.textContent = "";
   grid.innerHTML = "";
   cardsChosen = [];
   cardsChosenId = [];
