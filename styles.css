@@ -77,7 +77,7 @@ button:hover {
 button#restart {
   display: none;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
